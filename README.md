@@ -15,7 +15,7 @@ However accessing real time activity could be very expensive (performance) and i
 How do we get real time changes?
 Based on the use cases and criticality companies can use near real time or real time approaches. In case of near real time micro/mini batches can be performed at every minute or hour level. They can use change data capture to get real time changes from operational data bases.
 
-Methods
+## Methods
 
 Periodic SQOOP/JDBC Pull - Periodically makes connection with DB and based on audit columns pull change data. This method puts load on operational databases, should be used when performance impact is acceptable.
 CDC - Change data capture - Reads database change logs and provides changes. This method doesn't put too much load on the operational databases and very efficient.
@@ -24,7 +24,9 @@ InsightLake enables companies to collect real time changes effectively, transfor
 
 In this article we will focus on how InsightLake Data Management solution could be used to implement both historical data pull and real time change data capture.
 
-Databases Supported By InsightLake
+<img style="width:100%;" src="cdc-profile.jpeg">
+
+## Databases Supported By InsightLake
 Oracle - Log miner/Log Reader Agent
 MySQL - Binary logs
 MongoDB
@@ -35,15 +37,17 @@ Kafka
 CDC
 All operations on the operational databases results in change. For example Insert, Update, Delete etc. Insight Lake CDC implementation captures the changes non intrusively and effectively making sure minimal impact on operational databases.
 
-CDC Workflows
+## CDC Workflows
+
+<img style="width:100%;" src="cdc-workflow.jpeg">
 
 Build CDC pipelines to filter or enrich the change data before persisting on Kafka or Data Lake.
 
-Dashboards
+## Dashboards
 
 CDC dashboards provides insights into running pipelines and how changes are processed.
 
-Replication to data lake
+## Replication to data lake
 
 InsightLake CDC solution allows replication of tables from operational databases to Hadoop data lakes. Using the intuitive UI data teams can quickly select tables for which changes need to be captured or replicated. It also allows generation of target schemas.
 
@@ -55,10 +59,11 @@ Events can be posted to enterprise wide message brokers like Kafka
 Performance
 InsightLake uses non intrusive way with low footprint to capture change data using database logs.
 
-Historical Load
+## Historical Load
 Using InsightLake Data management solution historical data can be pulled and loaded to target data stores like Hadoop lake (Hive) or No-SQL data bases etc. Data can be pulled in parallel way utilizing power of multi-threading/Big Data scale from various source systems.
 
-Monitoring
+## Monitoring
+<img style="width:100%;" src="cdc-flow.jpeg">
 InsightLake intuitive UI allows creation of thousands of CDC pipelines for replication or change data capture. UI provides dashboards to monitor pipelines for their status and execution performance. SLAs and alerts can be configured for each pipeline.
 
 To learn more, check out [http://insightlake.com/dataexplorer.html](http://insightlake.com/dataexplorer.html)
